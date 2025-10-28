@@ -1,45 +1,20 @@
 <template>
-  <h2
-    :class="[
-      'font-semibold leading-snug text-center',
-      sizeClass,
-      colorClass,
-    ]"
-  >
+  <span class="text-span">
     <slot />
-  </h2>
+  </span>
 </template>
 
-<script setup>
-import { computed } from 'vue'
+<style scoped>
+.text-span {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  color: #ffb5da;
+  text-align: center;
+  display: inline-block;
 
-const props = defineProps({
-  size: {
-    type: String,
-    default: 'md', // sm, md, lg
-  },
-  color: {
-    type: String,
-    default: 'white',
-  },
-})
-
-const sizeClass = computed(() => {
-  switch (props.size) {
-    case 'sm':
-      return 'text-lg md:text-xl'
-    case 'md':
-      return 'text-2xl md:text-3xl'
-    default:
-      return 'text-3xl md:text-4xl'
-  }
-})
-
-const colorClass = computed(() => {
-  return props.color === 'black'
-    ? 'text-gray-900'
-    : props.color === 'gray'
-    ? 'text-gray-400'
-    : 'text-white'
-})
-</script>
+  /* Escala fluida: 16px (móvil) → 20px (desktop) */
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
+  line-height: clamp(1.5rem, 1.5vw + 0.5rem, 1.875rem);
+  letter-spacing: 0;
+}
+</style>

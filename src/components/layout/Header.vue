@@ -1,35 +1,45 @@
 <template>
-  <header class="relative bg-[#8A1F61] text-white py-24 px-4 text-center overflow-hidden">
+  <header class="relative bg-[#870958] text-white py-6 px-4 text-center overflow-hidden">
+
+     <!-- Imagen de fondo -->
+    <div
+      class="absolute inset-0 bg-cover bg-center opacity-5"
+      style="background-image: url('/assets/images/img-hd.get-plan-report.webp');"
+    ></div>
+
+
     <!-- Fondo con cuadrícula -->
     <div class="absolute inset-0 opacity-10 grid-bg"></div>
 
     <!-- Contenido principal -->
-    <div class="relative z-10 flex flex-col items-center justify-center">
-      <p class="text-sm font-medium mb-4">
+    <div class="relative z-10 flex flex-col items-center justify-center  mt-[150px] mb-[65px]">
+      <TypographyH3>
         Reporte creado por <span class="font-semibold">Get a Plan</span>
-      </p>
-      <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
-        Reporte de<br />
-        entrevistas y voces.
-      </h1>
-      <p class="mt-6 text-lg font-medium opacity-90">
+      </TypographyH3>
+
+      <Title>
+        Reporte de<br />entrevistas y voces.
+      </Title>
+
+      <Subtitle size="md" color="gray" class="mt-6">
         {{ nombre_empresa }}
-      </p>
+      </Subtitle>
     </div>
   </header>
 </template>
 
 <script setup>
+import Title from '@/components/ui/Title.vue'
+import Subtitle from '@/components/ui/Subtitle.vue'
+import TypographyH3 from '../ui/TypographyH3.vue'
 const nombre_empresa = "Nombre de la empresa"
 </script>
 
 <style scoped>
 .grid-bg {
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.2) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5) 1px,
+      transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+  background-size: 80px 80px;
 }
 </style>
