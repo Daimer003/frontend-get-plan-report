@@ -28,9 +28,9 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 
 const routes = [
-  { name: 'report.summary', label: 'Resumen ejecutivo', to: '/report/summary' },
-  { name: 'report.consensus', label: 'Consenso de voces', to: '/report/consensus' },
-  { name: 'report.insights', label: 'Fortalezas, Brechas y Oportunidades', to: '/report/insights' }
+  { name: 'report.summary', label: 'Resumen ejecutivo', to: '/summary' },
+  { name: 'report.consensus', label: 'Consenso de voces', to: '/consensus' },
+  { name: 'report.insights', label: 'Fortalezas, Brechas y Oportunidades', to: '/insights' }
 ]
 
 const isActive = (path) => route.path === path

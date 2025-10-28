@@ -1,31 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import ReportLayout from '../layouts/ReportLayout.vue'
 
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    // Layout principal del sitio
-    {
-      path: '/',
-      component: DefaultLayout,
-      children: [
-        {
-          path: '',
-          name: 'home',
-          component: import('@/pages/index.vue'),
-          meta: {
-            title: 'Inicio | Get-Plan',
-            description: 'Resumen general del proyecto y reportes disponibles.',
-          },
-        },
-      ],
-    },
 
     // Layout para reportes
     {
-      path: '/report',
+      path: '/',
       component: ReportLayout,
       meta: {
         requiresAuth: false,
@@ -73,7 +56,7 @@ const router = createRouter({
   ],
 })
 
-// 🌐 Middleware global: título dinámico y scroll top
+// Middleware global: título dinámico y scroll top
 router.beforeEach((to, from, next) => {
   if (to.meta.title) {
     document.title = to.meta.title
